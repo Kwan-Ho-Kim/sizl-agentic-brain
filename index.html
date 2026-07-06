@@ -166,10 +166,10 @@ section{padding:110px 0}
 .agent-card.wide{grid-column:span 2;background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(192,132,252,.12))}
 @media(max-width:640px){.agent-card.wide{grid-column:span 1}}
 .agent-card.builder{
-  grid-column:1/-1;
   background:linear-gradient(135deg,rgba(222,195,255,.22),rgba(192,132,252,.1));
   border:1px dashed rgba(222,195,255,.5);
 }
+.agent-card.full{grid-column:1/-1}
 
 /* ── 차별점: 라이트, 상단 그라디언트 보더 ── */
 .diff{background:#fff}
@@ -302,6 +302,18 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
     </div>
     <div class="agent-grid">
       <div class="agent-card">
+        <div class="agent-ico">🔍</div>
+        <strong>리서치 에이전트</strong>
+        <p>조사 주제 설정부터 자료 수집, 분석, 보고서 작성·저장까지 리서치 전 과정을 자율 수행합니다.</p>
+        <a class="chapter" href="#">데모에서 보기 · 5:30</a>
+      </div>
+      <div class="agent-card">
+        <div class="agent-ico">📄</div>
+        <strong>문서 에이전트</strong>
+        <p>회의자료 · 보고서를 이해하고, 템플릿에 맞춰 DOCX · PDF 문서로 자동 생성합니다.</p>
+        <a class="chapter" href="#">데모에서 보기 · 4:40</a>
+      </div>
+      <div class="agent-card">
         <div class="agent-ico">🔗</div>
         <strong>ETL 에이전트</strong>
         <p>CSV · MQTT · OPC UA · DB 등 흩어진 데이터를 AI가 이해하기 쉬운 일관된 데이터로 변환합니다. 파이프라인 장애는 스스로 복구합니다.</p>
@@ -313,28 +325,16 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
         <p>DMAIC · Lean · TPM/OEE · TOC 방법론을 내장한 전문가 에이전트 팀이 현장 문제를 분업 진단하고 교차검증합니다.</p>
         <a class="chapter" href="#">데모에서 보기 · 3:10</a>
       </div>
-      <div class="agent-card">
-        <div class="agent-ico">📄</div>
-        <strong>문서 에이전트</strong>
-        <p>회의자료 · 보고서를 이해하고, 템플릿에 맞춰 DOCX · PDF 문서로 자동 생성합니다.</p>
-        <a class="chapter" href="#">데모에서 보기 · 4:40</a>
+      <div class="agent-card wide builder">
+        <div class="agent-ico">🛠️</div>
+        <strong>나만의 커스텀 에이전트 — Agent Builder</strong>
+        <p>여기서 끝이 아닙니다. 제조 특화 템플릿을 기반으로 코딩 없이 우리 공장에 맞는 에이전트를 직접 설계하고, 필요한 Skill은 자동으로 연결됩니다. 잘 만든 에이전트는 Save-as-Agent로 영구 자산화해 팀 전체가 재사용합니다.</p>
       </div>
-      <div class="agent-card">
-        <div class="agent-ico">🔍</div>
-        <strong>리서치 에이전트</strong>
-        <p>조사 주제 설정부터 자료 수집, 분석, 보고서 작성·저장까지 리서치 전 과정을 자율 수행합니다.</p>
-        <a class="chapter" href="#">데모에서 보기 · 5:30</a>
-      </div>
-      <div class="agent-card wide">
+      <div class="agent-card full">
         <div class="agent-ico">⚙️</div>
         <strong>워크플로우</strong>
         <p>트리거 → 에이전트 → 로직 → 액션. 평소 일하던 순서를 화면에 끌어다 연결하면 조건 · 반복 · 사람 승인까지 코딩 없이 자동화됩니다. 모든 실행 이력은 기록되어 언제든 다시 확인할 수 있습니다.</p>
         <a class="chapter" href="#">데모에서 보기 · 6:00</a>
-      </div>
-      <div class="agent-card builder">
-        <div class="agent-ico">🛠️</div>
-        <strong>나만의 커스텀 에이전트 — Agent Builder</strong>
-        <p>여기서 끝이 아닙니다. 제조 특화 템플릿을 기반으로 코딩 없이 우리 공장에 맞는 에이전트를 직접 설계하고, 필요한 Skill은 자동으로 연결됩니다. 잘 만든 에이전트는 Save-as-Agent로 영구 자산화해 팀 전체가 재사용합니다.</p>
       </div>
     </div>
   </div>
