@@ -139,6 +139,49 @@ section{padding:110px 0}
 .answer-band u{color:#DEC3FF;text-decoration-color:rgba(222,195,255,.5);text-underline-offset:6px}
 .answer-band small{display:block;font-size:15px;font-weight:700;color:rgba(255,255,255,.66);margin-bottom:14px;letter-spacing:0}
 
+/* ── 온톨로지: 데이터 파이프라인 + Object·Process 통합 ── */
+.ontology{background:#fff}
+.onto-flow{display:grid;grid-template-columns:1fr 46px 1fr 46px 1fr;align-items:stretch}
+@media(max-width:960px){.onto-flow{grid-template-columns:1fr}}
+.onto-step{
+  background:linear-gradient(180deg,#fff,#FCF7FF);border:1px solid var(--line);border-radius:26px;padding:32px 30px;
+  box-shadow:0 14px 34px rgba(52,16,94,.06);
+}
+.onto-step-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.onto-num{
+  display:inline-flex;width:34px;height:34px;border-radius:50%;flex:none;
+  background:var(--grad-btn);color:#fff;font-weight:800;font-size:15px;align-items:center;justify-content:center;
+}
+.onto-step-head strong{font-size:19px;font-weight:800;letter-spacing:-0.03em;color:var(--ink-2)}
+.onto-cap{font-size:13px;font-weight:800;color:var(--accent);margin-bottom:14px}
+.onto-step ul{list-style:none}
+.onto-step li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+.onto-step li:last-child{border-bottom:0}
+.onto-step li b{font-weight:800;color:var(--ink-2)}
+.onto-step li span{color:var(--sub);font-size:13.5px;flex:none}
+.onto-arrow{display:flex;align-items:center;justify-content:center;color:var(--accent-soft);font-size:26px;font-weight:800}
+@media(max-width:960px){.onto-arrow{transform:rotate(90deg);padding:10px 0}}
+.onto-band{
+  margin-top:56px;border-radius:30px;padding:54px 44px;color:#fff;
+  background:radial-gradient(circle at 85% 15%, rgba(222,195,255,.25), transparent 45%), var(--grad-deep);
+}
+.onto-band>h4{text-align:center;font-size:27px;font-weight:800;letter-spacing:-0.03em;line-height:1.5;margin-bottom:38px}
+.onto-band>h4 span{color:#DEC3FF}
+.onto-band-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:960px){.onto-band-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.onto-band-grid{grid-template-columns:1fr}}
+.onto-point{background:rgba(255,255,255,.96);border-radius:22px;padding:28px 26px;color:var(--ink)}
+.onto-point strong{display:block;font-size:16.5px;font-weight:800;letter-spacing:-0.03em;color:var(--ink-2);margin-bottom:10px}
+.onto-point p{font-size:13.5px;color:var(--sub)}
+.onto-def{
+  background:linear-gradient(135deg,rgba(222,195,255,.22),rgba(192,132,252,.1));
+  border:1px solid var(--glass-line);border-radius:22px;padding:28px 26px;backdrop-filter:blur(6px);
+}
+.onto-def-badge{display:inline-block;background:var(--grad-btn);border-radius:14px;padding:6px 18px;font-weight:800;font-size:15px;margin-bottom:12px}
+.onto-def em{display:block;font-style:normal;font-size:13.5px;font-weight:800;color:rgba(255,255,255,.85);margin-bottom:10px}
+.onto-def p{font-size:14px;line-height:1.7;color:rgba(255,255,255,.85)}
+.onto-def p b{color:#DEC3FF}
+
 /* ── 에이전트 5종: 다크 섹션 + 글래스 카드 (메인 솔루션 섹션 문법) ── */
 .agents{
   background:
@@ -288,6 +331,74 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
     <div class="answer-band">
       <small>상용 LLM 챗봇은 사내 데이터와 단절되어 있고, 결과의 재현이나 감사가 어렵습니다</small>
       그래서 데이터에 <u>직접 연결되어</u> 스스로 판단하고 실행하는<br>제조 특화 Agentic AI가 필요합니다
+    </div>
+  </div>
+</section>
+
+<!-- ②-1 온톨로지: 데이터 기반 -->
+<section class="ontology">
+  <div class="wrap">
+    <div class="sec-head">
+      <h3>시즐의 <span>Ontology</span></h3>
+      <p>ERD · VectorDB · Knowledge Graph를 ETL로 통합하고, 객체(Object)와 프로세스(Process)를 연결합니다.</p>
+    </div>
+    <div class="onto-flow">
+      <div class="onto-step">
+        <div class="onto-step-head"><span class="onto-num">1</span><strong>데이터 소스</strong></div>
+        <div class="onto-cap">이기종 데이터 소스</div>
+        <ul>
+          <li><b>정형 DB</b><span>SQL · RDB</span></li>
+          <li><b>LOG</b><span>시스템 로그</span></li>
+          <li><b>문서 · File</b><span>비정형</span></li>
+          <li><b>도면 DWG</b><span>CAD</span></li>
+          <li><b>이미지 RASTER</b><span>스캔</span></li>
+        </ul>
+      </div>
+      <div class="onto-arrow">→</div>
+      <div class="onto-step">
+        <div class="onto-step-head"><span class="onto-num">2</span><strong>ETL · 수집/변환</strong></div>
+        <div class="onto-cap">READ ONLY</div>
+        <ul>
+          <li><b>DB Connector</b><span>읽기 전용</span></li>
+          <li><b>RAG</b><span>문서 임베딩</span></li>
+          <li><b>DXF 파서</b><span>도면 구조화</span></li>
+          <li><b>Image 처리</b><span>이미지 수치화</span></li>
+        </ul>
+      </div>
+      <div class="onto-arrow">→</div>
+      <div class="onto-step">
+        <div class="onto-step-head"><span class="onto-num">3</span><strong>데이터 저장 · 시각화</strong></div>
+        <div class="onto-cap">목적별 데이터 저장소</div>
+        <ul>
+          <li><b>SQL · RDB</b><span>정형 질의</span></li>
+          <li><b>VectorDB</b><span>의미 검색</span></li>
+          <li><b>Graph DB</b><span>관계 · KG</span></li>
+          <li><b>Image-math</b><span>수치 연산</span></li>
+          <li><b>TempDB</b><span>임시 버퍼</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="onto-band">
+      <h4>객체(Object)에 <span>프로세스(Process)</span>가 연결되어야 ‘진정한 온톨로지’</h4>
+      <div class="onto-band-grid">
+        <div class="onto-point">
+          <strong>① 기준정보 = 매핑 테이블</strong>
+          <p>같은 제품도 나라 · 회계 · 관리 기준마다 용어와 코드가 제각각. 이를 모두 연결한 매핑 테이블이 곧 ‘기준정보(Dictionary)’입니다.</p>
+        </div>
+        <div class="onto-point">
+          <strong>② 살아있는 데이터</strong>
+          <p>기준정보는 끊임없이 바뀌는 ‘생물’. 수작업으로는 동기화가 불가능해 자동으로 갱신 · 검증되는 구조가 필요합니다.</p>
+        </div>
+        <div class="onto-point">
+          <strong>③ 의사결정 가속</strong>
+          <p>흩어진 정보를 의미로 연결하면 필요한 데이터를 즉시 불러와 더 빠르고 정확한 의사결정이 가능합니다.</p>
+        </div>
+        <div class="onto-def">
+          <span class="onto-def-badge">Ontology</span>
+          <em>Object + Process 통합</em>
+          <p>특정 도메인에서 사용되는 <b>개념들 사이의 관계</b>를 기계가 오해 없이 이해하도록 <b>정의한 체계</b></p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
