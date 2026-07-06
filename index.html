@@ -199,9 +199,19 @@ section{padding:110px 0}
 .agents .sec-head h3{color:#fff}
 .agents .sec-head h3 span{color:#DEC3FF}
 .agents .sec-head p{color:rgba(255,255,255,.72)}
-.agent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-@media(max-width:960px){.agent-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.agent-grid{grid-template-columns:1fr}}
+.agent-bundle{
+  border:1px dashed rgba(222,195,255,.5);border-radius:30px;padding:20px;
+  background:linear-gradient(135deg,rgba(222,195,255,.12),rgba(192,132,252,.06));
+}
+.agent-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:960px){.agent-row{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.agent-row{grid-template-columns:1fr}}
+.agent-bundle-note{
+  margin-top:16px;text-align:center;font-size:15.5px;font-weight:700;color:rgba(255,255,255,.88);
+  background:linear-gradient(135deg,rgba(222,195,255,.22),rgba(192,132,252,.1));
+  border-radius:18px;padding:16px 22px;
+}
+.agent-bundle-note b{color:#DEC3FF}
 .agent-card{
   background:var(--glass);border:1px solid var(--glass-line);border-radius:30px;padding:36px 32px;
   display:flex;flex-direction:column;backdrop-filter:blur(6px);
@@ -213,13 +223,7 @@ section{padding:110px 0}
 .agent-card p{color:rgba(255,255,255,.74);font-size:14.5px;margin-top:10px;flex:1}
 .chapter{margin-top:20px;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800;color:#DEC3FF}
 .chapter::before{content:"▶";font-size:9px}
-.agent-card.wide{grid-column:span 2;background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(192,132,252,.12))}
-@media(max-width:640px){.agent-card.wide{grid-column:span 1}}
-.agent-card.builder{
-  background:linear-gradient(135deg,rgba(222,195,255,.22),rgba(192,132,252,.1));
-  border:1px dashed rgba(222,195,255,.5);
-}
-.agent-card.full{grid-column:1/-1}
+.agent-card.full{margin-top:22px;background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(192,132,252,.12))}
 
 /* ── 차별점: 라이트, 상단 그라디언트 보더 ── */
 .diff{background:#fff}
@@ -420,7 +424,8 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
       <h3>에이전트부터 워크플로우까지, <span>하나의 흐름</span>으로</h3>
       <p>리서치 · 문서 · ETL · 컨설팅 에이전트를 기본 제공하고, 우리 현장에 맞는 에이전트는 코딩 없이 직접 만들 수 있습니다. 각 기능은 데모 영상의 해당 구간에서 확인할 수 있습니다.</p>
     </div>
-    <div class="agent-grid">
+    <div class="agent-bundle">
+      <div class="agent-row">
       <div class="agent-card">
         <div class="agent-ico">🔍</div>
         <strong>리서치 에이전트</strong>
@@ -445,17 +450,16 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
         <p>DMAIC · Lean · TPM/OEE · TOC 방법론을 내장한 전문가 에이전트 팀이 현장 문제를 분업 진단하고 교차검증합니다.</p>
         <a class="chapter" href="#">데모에서 보기 · 3:10</a>
       </div>
-      <div class="agent-card wide builder">
-        <div class="agent-ico">🛠️</div>
-        <strong>나만의 커스텀 에이전트</strong>
-        <p>여기서 끝이 아닙니다. 제조 특화 템플릿을 기반으로 코딩 없이 우리 공장에 맞는 에이전트를 직접 설계하고, 필요한 Skill은 자동으로 연결됩니다. 잘 만든 에이전트는 Save-as-Agent로 영구 자산화해 팀 전체가 재사용합니다.</p>
       </div>
-      <div class="agent-card full">
+      <div class="agent-bundle-note">
+        🛠️ 이 에이전트들을 자유롭게 조합해, 코딩 없이 <b>나만의 커스텀 에이전트</b>를 만들 수 있습니다.
+      </div>
+    </div>
+    <div class="agent-card full">
         <div class="agent-ico">⚙️</div>
         <strong>워크플로우</strong>
         <p>트리거 → 에이전트 → 로직 → 액션. 평소 일하던 순서를 화면에 끌어다 연결하면 조건 · 반복 · 사람 승인까지 코딩 없이 자동화됩니다. 모든 실행 이력은 기록되어 언제든 다시 확인할 수 있습니다.</p>
         <a class="chapter" href="#">데모에서 보기 · 6:00</a>
-      </div>
     </div>
   </div>
 </section>
