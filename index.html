@@ -155,11 +155,13 @@ section{padding:110px 0}
 }
 .onto-step-head strong{font-size:19px;font-weight:800;letter-spacing:-0.03em;color:var(--ink-2)}
 .onto-cap{font-size:13px;font-weight:800;color:var(--accent);margin-bottom:14px}
-.onto-step ul{list-style:none}
-.onto-step li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14px}
-.onto-step li:last-child{border-bottom:0}
+.onto-step ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.onto-step li{
+  display:inline-flex;align-items:baseline;gap:6px;padding:6px 13px;
+  background:#fff;border:1px solid var(--line);border-radius:16px;font-size:13.5px;
+}
 .onto-step li b{font-weight:800;color:var(--ink-2)}
-.onto-step li span{color:var(--sub);font-size:13.5px;flex:none}
+.onto-step li span{color:var(--sub);font-size:12px}
 .onto-arrow{display:flex;align-items:center;justify-content:center;color:var(--accent-soft);font-size:26px;font-weight:800}
 @media(max-width:960px){.onto-arrow{transform:rotate(90deg);padding:10px 0}}
 .onto-band{
