@@ -142,10 +142,6 @@ section{padding:110px 0}
 /* ── 온톨로지: 데이터 파이프라인 + Object·Process 통합 ── */
 .ontology{background:#fff;padding:84px 0}
 .ontology .sec-head{margin-bottom:44px}
-.onto-num{
-  display:inline-flex;width:34px;height:34px;border-radius:50%;flex:none;
-  background:var(--grad-btn);color:#fff;font-weight:800;font-size:15px;align-items:center;justify-content:center;
-}
 .onto-layer{
   display:flex;align-items:center;gap:28px;
   background:linear-gradient(180deg,#fff,#FCF7FF);border:1px solid var(--line);border-radius:22px;padding:18px 28px;
@@ -162,7 +158,11 @@ section{padding:110px 0}
 .onto-layer li b{font-weight:800;color:var(--ink-2)}
 .onto-layer li span{color:var(--sub);font-size:12px}
 @media(max-width:768px){.onto-layer{flex-direction:column;align-items:flex-start;gap:14px}.onto-layer-head{width:auto}}
-.onto-up{text-align:center;color:var(--accent);font-size:28px;font-weight:800;line-height:1;padding:8px 0}
+.onto-up{display:flex;justify-content:center;padding:10px 0}
+.onto-up i{
+  display:block;width:52px;height:24px;
+  background:var(--grad-btn);clip-path:polygon(50% 0,0 100%,100% 100%);
+}
 .onto-band{
   border-radius:30px;padding:42px 38px;color:#fff;
   background:radial-gradient(circle at 85% 15%, rgba(222,195,255,.25), transparent 45%), var(--grad-deep);
@@ -371,10 +371,9 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
         </div>
       </div>
     </div>
-    <div class="onto-up">↑</div>
+    <div class="onto-up"><i></i></div>
     <div class="onto-layer">
       <div class="onto-layer-head">
-        <span class="onto-num">3</span>
         <div><strong>데이터 저장 · 시각화</strong><em>목적별 데이터 저장소</em></div>
       </div>
       <ul>
@@ -385,10 +384,9 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
         <li><b>TempDB</b><span>임시 버퍼</span></li>
       </ul>
     </div>
-    <div class="onto-up">↑</div>
+    <div class="onto-up"><i></i></div>
     <div class="onto-layer">
       <div class="onto-layer-head">
-        <span class="onto-num">2</span>
         <div><strong>ETL · 수집/변환</strong><em>READ ONLY</em></div>
       </div>
       <ul>
@@ -398,10 +396,9 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
         <li><b>Image 처리</b><span>이미지 수치화</span></li>
       </ul>
     </div>
-    <div class="onto-up">↑</div>
+    <div class="onto-up"><i></i></div>
     <div class="onto-layer">
       <div class="onto-layer-head">
-        <span class="onto-num">1</span>
         <div><strong>데이터 소스</strong><em>이기종 데이터 소스</em></div>
       </div>
       <ul>
