@@ -66,7 +66,7 @@ section{padding:72px 0}
   min-height:calc(100vw / 2.85);display:flex;align-items:center;
 }
 .hero .wrap{width:100%}
-.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
+.hero-grid{display:block}
 @media(max-width:960px){.hero-grid{grid-template-columns:1fr}}
 .badge{
   display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:800;color:#DEC3FF;
@@ -74,11 +74,11 @@ section{padding:72px 0}
   letter-spacing:-0.01em;
 }
 .hero h2{font-size:56px;font-weight:800;line-height:1.2;letter-spacing:-0.03em}
-.hero-sub{margin-top:18px;font-size:23px;font-weight:800;color:rgba(255,255,255,.92);letter-spacing:-0.02em}
+.hero-sub{margin-top:18px;font-size:23px;font-weight:800;color:rgba(255,255,255,.92);letter-spacing:-0.02em;white-space:nowrap}
 .hero-sub b{color:#DEC3FF}
-@media(max-width:768px){.hero h2{font-size:38px}.hero-sub{font-size:15px}}
+@media(max-width:768px){.hero h2{font-size:38px}.hero-sub{font-size:15px;white-space:normal}}
 .hero h2 .hl{background:linear-gradient(90deg,#DEC3FF,#C084FC);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .lead{color:rgba(255,255,255,.78);font-size:17.5px;margin-top:22px;max-width:540px;letter-spacing:-0.01em}
+.hero .lead{color:rgba(255,255,255,.78);font-size:17.5px;margin-top:22px;max-width:880px;letter-spacing:-0.01em}
 .hero-ctas{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;font-weight:800;font-size:16px;border-radius:28px;padding:16px 34px;letter-spacing:-0.02em;transition:transform .15s ease,box-shadow .15s ease}
 .btn:hover{transform:translateY(-2px)}
@@ -491,7 +491,7 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
     <div>
       <h2>SIZL <span class="hl">Agentic Brain</span></h2>
       <p class="hero-sub"><b>AX 2.0</b> 스마트 팩토리 구현 — 데이터 연결부터 자율 실행까지 하나의 플랫폼으로</p>
-      <p class="lead">공장 데이터에 직접 연결되어 분석·진단·자동화를 스스로 수행하는 Agentic AI 플랫폼입니다. 흩어진 데이터를 하나로 모으고, 현장 문제를 진단해 조치 방안까지 제안합니다.</p>
+      <p class="lead">공장 데이터에 직접 연결되어 분석·진단·자동화를 스스로 수행하는 Agentic AI 플랫폼입니다.<br>흩어진 데이터를 하나로 모으고, 현장 문제를 진단해 조치 방안까지 제안합니다.</p>
       <div class="hero-ctas">
         <a class="btn btn-grad" href="#contact">도입 문의하기</a>
         <a class="btn btn-glass" href="#">제품 소개서</a>
