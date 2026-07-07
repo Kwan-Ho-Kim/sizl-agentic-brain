@@ -1,0 +1,23 @@
+# ── 대용량 · 기밀 원본 (GitHub에 올리지 않음) ──
+# 데모 영상
+*.mp4
+*.mov
+제품스크린샷/
+
+# 소개자료 · 문서 원본
+*.pdf
+*.pptx
+
+# 디자인 원본
+*.ai
+
+# 생성 이미지 원본 (웹 배포본은 img/*.jpg 와 img/logo.png 만 사용)
+img/*.png
+!img/logo.png
+스크린샷*.png
+
+# 로컬 작업 원본 (배포 시 index.html 로 복사됨)
+agentic-brain.html
+
+# OS 파일
+.DS_Store
