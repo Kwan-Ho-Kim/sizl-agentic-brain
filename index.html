@@ -30,11 +30,11 @@ body{
 .wrap{max-width:1440px;margin:0 auto;padding:0 60px}
 @media(max-width:1024px){.wrap{padding:0 24px}}
 a{text-decoration:none;color:inherit}
-section{padding:110px 0}
+section{padding:72px 0}
 
 /* 섹션 타이틀 — 메인의 h3 패턴(큰 사이즈·800·타이트 자간·보라 span) */
-.sec-head{text-align:center;margin-bottom:64px}
-.sec-head h3{font-size:44px;font-weight:800;letter-spacing:-0.04em;color:var(--ink);line-height:1.32}
+.sec-head{text-align:center;margin-bottom:40px}
+.sec-head h3{font-size:38px;font-weight:800;letter-spacing:-0.04em;color:var(--ink);line-height:1.32}
 .sec-head h3 span{color:var(--accent)}
 .sec-head p{color:var(--sub);font-size:17px;margin-top:16px;letter-spacing:-0.01em}
 @media(max-width:768px){.sec-head h3{font-size:31px}}
@@ -63,7 +63,7 @@ section{padding:110px 0}
     linear-gradient(100deg, rgba(22,9,47,.94) 0%, rgba(38,15,77,.8) 45%, rgba(22,9,47,.5) 100%),
     url("img/hero.jpg") center/cover no-repeat,
     var(--grad-hero);
-  color:#fff;padding:96px 0 110px;overflow:hidden;
+  color:#fff;padding:64px 0 72px;overflow:hidden;
 }
 .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
 @media(max-width:960px){.hero-grid{grid-template-columns:1fr}}
@@ -72,7 +72,7 @@ section{padding:110px 0}
   background:var(--glass);border:1px solid var(--glass-line);border-radius:20px;padding:8px 18px;margin-bottom:24px;
   letter-spacing:-0.01em;
 }
-.hero h2{font-size:46px;font-weight:800;line-height:1.38;letter-spacing:-0.04em}
+.hero h2{font-size:42px;font-weight:800;line-height:1.38;letter-spacing:-0.04em}
 @media(max-width:768px){.hero h2{font-size:32px}}
 .hero h2 .hl{background:linear-gradient(90deg,#DEC3FF,#C084FC);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero .lead{color:rgba(255,255,255,.78);font-size:17.5px;margin-top:22px;max-width:540px;letter-spacing:-0.01em}
@@ -123,7 +123,7 @@ section{padding:110px 0}
 .prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 @media(max-width:860px){.prob-grid{grid-template-columns:1fr}}
 .prob-card{
-  background:#fff;border:1px solid var(--line);border-radius:30px;padding:38px 34px;
+  background:#fff;border:1px solid var(--line);border-radius:26px;padding:30px 28px;
   box-shadow:0 14px 34px rgba(52,16,94,.06);transition:transform .15s ease,box-shadow .15s ease;
 }
 .prob-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px rgba(52,16,94,.12)}
@@ -135,7 +135,7 @@ section{padding:110px 0}
 .prob-card strong{display:block;font-size:20px;font-weight:800;letter-spacing:-0.03em;color:var(--ink-2);margin-bottom:10px}
 .prob-card p{color:var(--sub);font-size:15px}
 .answer-band{
-  margin-top:56px;border-radius:30px;padding:46px 40px;text-align:center;color:#fff;
+  margin-top:36px;border-radius:30px;padding:36px 36px;text-align:center;color:#fff;
   background:radial-gradient(circle at 85% 15%, rgba(222,195,255,.25), transparent 45%), var(--grad-deep);
   font-size:22px;font-weight:800;line-height:1.6;letter-spacing:-0.03em;
 }
@@ -148,9 +148,9 @@ section{padding:110px 0}
     radial-gradient(rgba(151,27,253,.045) 1.2px, transparent 1.2px) 0 0/26px 26px,
     radial-gradient(circle at 88% 12%, rgba(221,194,254,.14), transparent 36%),
     #fff;
-  padding:84px 0;
+  padding:64px 0;
 }
-.ontology .sec-head{margin-bottom:44px}
+.ontology .sec-head{margin-bottom:36px}
 .onto-layer{
   display:flex;align-items:center;gap:28px;
   background:linear-gradient(180deg,#fff,#FCF7FF);border:1px solid var(--line);border-radius:22px;padding:18px 28px;
@@ -279,7 +279,7 @@ section{padding:110px 0}
     linear-gradient(rgba(19,9,38,.55), rgba(26,11,52,.8)),
     url("img/cta-bg.jpg") center/cover no-repeat,
     var(--grad-deep);
-  color:#fff;text-align:center;padding:120px 0;
+  color:#fff;text-align:center;padding:88px 0;
 }
 .cta h3{font-size:40px;font-weight:800;line-height:1.45;letter-spacing:-0.04em}
 @media(max-width:768px){.cta h3{font-size:29px}}
@@ -287,6 +287,27 @@ section{padding:110px 0}
 .cta .hero-ctas{justify-content:center}
 
 footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30px 0;text-align:center;letter-spacing:0}
+
+/* ── 좌측 섹션 내비게이션 ── */
+.side-nav{
+  position:fixed;left:20px;top:50%;transform:translateY(-50%);z-index:90;
+  display:flex;flex-direction:column;gap:13px;
+}
+.side-nav a{
+  width:10px;height:10px;border-radius:50%;
+  background:rgba(151,27,253,.28);box-shadow:0 0 0 2px rgba(255,255,255,.55);
+  position:relative;transition:transform .15s ease,background .15s ease;
+}
+.side-nav a:hover{background:var(--accent-soft)}
+.side-nav a.on{background:var(--accent);transform:scale(1.3)}
+.side-nav a::after{
+  content:attr(data-label);position:absolute;left:22px;top:50%;transform:translateY(-50%);
+  font-size:12px;font-weight:800;color:var(--accent);white-space:nowrap;
+  background:rgba(252,248,255,.95);border:1px solid var(--line);border-radius:12px;padding:4px 12px;
+  opacity:0;pointer-events:none;transition:opacity .15s ease;box-shadow:0 6px 16px rgba(52,16,94,.14);
+}
+.side-nav a:hover::after{opacity:1}
+@media(max-width:1180px){.side-nav{display:none}}
 
 /* ── 히어로 등장 애니메이션 ── */
 @keyframes heroIn{to{opacity:1;transform:none}}
@@ -391,8 +412,18 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
   </div>
 </header>
 
+<nav class="side-nav" aria-label="섹션 바로가기">
+  <a href="#home" data-label="홈"></a>
+  <a href="#problems" data-label="문제 정의"></a>
+  <a href="#ontology" data-label="Ontology"></a>
+  <a href="#agents" data-label="에이전트"></a>
+  <a href="#diff" data-label="차별점"></a>
+  <a href="#deploy" data-label="배포"></a>
+  <a href="#contact" data-label="도입 문의"></a>
+</nav>
+
 <!-- ① HERO -->
-<section class="hero">
+<section class="hero" id="home">
   <div class="wrap hero-grid">
     <div>
       <span class="badge">SIZL Agentic Brain · 제조 특화 Agentic AI 플랫폼</span>
@@ -419,7 +450,7 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 </section>
 
 <!-- ② 문제 정의 -->
-<section class="problems">
+<section class="problems" id="problems">
   <div class="wrap">
     <div class="sec-head">
       <h3>데이터를 보여주는 AI를 넘어,<br><span>답까지 주는</span> AI 플랫폼</h3>
@@ -450,7 +481,7 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 </section>
 
 <!-- ②-1 온톨로지: 데이터 기반 -->
-<section class="ontology">
+<section class="ontology" id="ontology">
   <div class="wrap">
     <div class="sec-head">
       <h3>SIZL <span>Ontology Engine</span></h3>
@@ -534,7 +565,7 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 </section>
 
 <!-- ③ 에이전트: 기본 제공 + 커스텀 빌더 -->
-<section class="agents">
+<section class="agents" id="agents">
   <div class="wrap">
     <div class="sec-head">
       <h3>에이전트부터 워크플로우까지, <span>하나의 흐름</span>으로</h3>
@@ -609,7 +640,7 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 </section>
 
 <!-- ④ 차별점 -->
-<section class="diff">
+<section class="diff" id="diff">
   <div class="wrap">
     <div class="sec-head">
       <h3>에이전트 라이프사이클 <span>전 구간</span>을<br>하나의 플랫폼으로</h3>
@@ -624,7 +655,7 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 </section>
 
 <!-- ⑤ 배포 옵션 -->
-<section class="deploy">
+<section class="deploy" id="deploy">
   <div class="wrap">
     <div class="sec-head">
       <h3>환경 · 보안 정책에 맞춰 <span>선택</span>합니다</h3>
@@ -721,6 +752,22 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
     if(moved){ e.preventDefault(); e.stopPropagation(); moved = false; }
   }, true);
   sc.addEventListener('dragstart', function(e){ e.preventDefault(); });
+})();
+
+(function(){
+  var links = document.querySelectorAll('.side-nav a');
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var id = '#' + e.target.id;
+      links.forEach(function(l){ l.classList.toggle('on', l.getAttribute('href') === id); });
+    });
+  }, {rootMargin:'-45% 0px -45% 0px', threshold:0});
+  links.forEach(function(l){
+    var t = document.querySelector(l.getAttribute('href'));
+    if(t) io.observe(t);
+  });
 })();
 </script>
 
