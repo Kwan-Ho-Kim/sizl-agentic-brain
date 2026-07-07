@@ -65,7 +65,9 @@ section{padding:72px 0}
     url("img/hero.jpg") center/cover no-repeat,
     var(--grad-hero);
   color:#fff;padding:64px 0 72px;overflow:hidden;
+  min-height:calc(100vw / 1.65);display:flex;align-items:center;
 }
+.hero .wrap{width:100%}
 .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
 @media(max-width:960px){.hero-grid{grid-template-columns:1fr}}
 .badge{
