@@ -1,0 +1,59 @@
+name: Deploy Pages (with versions)
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Assemble site (main at root + each tag under /vN/)
+        run: |
+          mkdir -p _site
+          rsync -a --exclude .git --exclude .github --exclude _site ./ _site/
+          for tag in $(git tag -l 'v*'); do
+            mkdir -p "_site/$tag"
+            git archive "$tag" | tar -x -C "_site/$tag"
+            rm -rf "_site/$tag/.github"
+          done
+          {
+            echo '<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SIZL Agentic Brain — 버전 목록</title>'
+            echo '<style>body{font-family:-apple-system,"Apple SD Gothic Neo",sans-serif;max-width:640px;margin:70px auto;padding:0 20px;color:#0F172A}h1{letter-spacing:-0.03em}a{color:#971BFD;font-weight:700;text-decoration:none}a:hover{text-decoration:underline}li{margin:10px 0;font-size:17px}</style></head><body>'
+            echo '<h1>SIZL Agentic Brain — 버전 목록</h1><ul>'
+            echo '<li><a href="./">최신 (main)</a></li>'
+            for tag in $(git tag -l 'v*' | sort -Vr); do
+              echo "<li><a href=\"./$tag/\">$tag</a></li>"
+            done
+            echo '</ul></body></html>'
+          } > _site/versions.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
