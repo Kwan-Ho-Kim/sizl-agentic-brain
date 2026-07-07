@@ -75,8 +75,10 @@ section{padding:72px 0}
   background:var(--glass);border:1px solid var(--glass-line);border-radius:20px;padding:8px 18px;margin-bottom:24px;
   letter-spacing:-0.01em;
 }
-.hero h2{font-size:42px;font-weight:800;line-height:1.38;letter-spacing:-0.04em}
-@media(max-width:768px){.hero h2{font-size:32px}}
+.hero h2{font-size:56px;font-weight:800;line-height:1.2;letter-spacing:-0.03em}
+.hero-sub{margin-top:18px;font-size:19px;font-weight:800;color:rgba(255,255,255,.92);letter-spacing:-0.02em}
+.hero-sub b{color:#DEC3FF}
+@media(max-width:768px){.hero h2{font-size:38px}.hero-sub{font-size:15px}}
 .hero h2 .hl{background:linear-gradient(90deg,#DEC3FF,#C084FC);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero .lead{color:rgba(255,255,255,.78);font-size:17.5px;margin-top:22px;max-width:540px;letter-spacing:-0.01em}
 .hero-ctas{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
@@ -360,17 +362,16 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 
 /* ── 히어로 등장 애니메이션 ── */
 @keyframes heroIn{to{opacity:1;transform:none}}
-.hero .badge,.hero h2,.hero .lead,.hero .hero-ctas,.hero .agent-pills,.hero .video-shell{
+.hero h2,.hero .hero-sub,.hero .lead,.hero .hero-ctas,.hero .video-shell{
   opacity:0;transform:translateY(26px);animation:heroIn .8s ease forwards;
 }
-.hero .badge{animation-delay:.9s}
-.hero h2{animation-delay:1.05s}
+.hero h2{animation-delay:.9s}
+.hero .hero-sub{animation-delay:1.05s}
 .hero .lead{animation-delay:1.2s}
 .hero .hero-ctas{animation-delay:1.35s}
-.hero .agent-pills{animation-delay:1.5s}
 .hero .video-shell{animation-delay:1.35s}
 @media (prefers-reduced-motion:reduce){
-  .hero .badge,.hero h2,.hero .lead,.hero .hero-ctas,.hero .agent-pills,.hero .video-shell{
+  .hero h2,.hero .hero-sub,.hero .lead,.hero .hero-ctas,.hero .video-shell{
     opacity:1;transform:none;animation:none;
   }
 }
@@ -478,15 +479,12 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 <section class="hero" id="home">
   <div class="wrap hero-grid">
     <div>
-      <span class="badge">SIZL Agentic Brain · 제조 특화 Agentic AI 플랫폼</span>
-      <h2><span class="hl">AX 2.0</span> 스마트 팩토리 구현,<br>데이터 연결부터 자율 실행까지<br><span class="hl">하나의 플랫폼</span>으로</h2>
+      <h2>SIZL <span class="hl">Agentic Brain</span></h2>
+      <p class="hero-sub"><b>AX 2.0</b> 스마트 팩토리 구현 — 데이터 연결부터 자율 실행까지 하나의 플랫폼으로</p>
       <p class="lead">공장 데이터에 직접 연결되어 분석·진단·자동화를 스스로 수행하는 Agentic AI 플랫폼입니다. 흩어진 데이터를 하나로 모으고, 현장 문제를 진단해 조치 방안까지 제안합니다.</p>
       <div class="hero-ctas">
         <a class="btn btn-grad" href="#contact">도입 문의하기</a>
         <a class="btn btn-glass" href="#">제품 소개서</a>
-      </div>
-      <div class="agent-pills">
-        <span>리서치</span><span>문서</span><span>ETL</span><span>컨설팅</span><span>워크플로우</span><span class="pill-plus">＋ 커스텀 에이전트</span>
       </div>
     </div>
     <div class="video-shell">
