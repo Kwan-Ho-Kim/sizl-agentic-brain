@@ -6,4 +6,9 @@
 
 **https://kwan-ho-kim.github.io/sizl-agentic-brain/**
 
-GitHub Pages로 호스팅되며, `main` 브랜치의 `index.html`이 자동 배포됩니다.
+GitHub Actions로 배포됩니다. `main`에 push하거나 `v*` 태그를 달면 자동으로 재배포됩니다.
+
+## 📌 버전별 페이지
+
+- 버전 목록: **https://kwan-ho-kim.github.io/sizl-agentic-brain/versions.html**
+- 각 태그는 `…/sizl-agentic-brain/<태그>/` 경로로 배포됩니다 (예: [v1](https://kwan-ho-kim.github.io/sizl-agentic-brain/v1/))
