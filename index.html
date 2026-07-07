@@ -269,6 +269,30 @@ section{padding:110px 0}
 
 footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30px 0;text-align:center;letter-spacing:0}
 
+/* ── SVG 아이콘 ── */
+.agent-ico{color:#fff}
+.agent-ico svg{width:25px;height:25px}
+.agent-bundle-note svg{width:17px;height:17px;vertical-align:-3px;margin-right:6px;color:#DEC3FF}
+.diff-ico{
+  width:44px;height:44px;border-radius:14px;background:#F3E8FF;color:var(--accent);
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+}
+.diff-ico svg{width:22px;height:22px}
+.deploy-ico{
+  width:46px;height:46px;border-radius:14px;background:var(--grad-btn);color:#fff;
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  box-shadow:0 8px 20px rgba(151,27,253,.3);
+}
+.deploy-ico svg{width:22px;height:22px}
+.onto-point-ico{
+  width:38px;height:38px;border-radius:12px;background:#F3E8FF;color:var(--accent);
+  display:flex;align-items:center;justify-content:center;margin-bottom:12px;
+}
+.onto-point-ico svg{width:19px;height:19px}
+.onto-band{position:relative;overflow:hidden}
+.onto-band-net{position:absolute;right:-30px;top:-20px;width:400px;height:auto;opacity:.13;pointer-events:none}
+.onto-band>:not(.onto-band-net){position:relative}
+
 /* ── 스크롤 리빌 ── */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
@@ -359,18 +383,31 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
       <p>ERD · VectorDB · Knowledge Graph를 ETL로 통합하고, 객체(Object)와 프로세스(Process)를 연결합니다.</p>
     </div>
     <div class="onto-band">
+      <svg class="onto-band-net" viewBox="0 0 400 300" fill="none" stroke="#fff" stroke-width="1.2" aria-hidden="true">
+        <path d="M60 60 180 40M180 40 320 90M180 40 140 160M320 90 250 200M140 160 250 200M140 160 60 240M250 200 340 260M60 60 140 160"/>
+        <circle cx="60" cy="60" r="7" fill="#fff"/>
+        <circle cx="180" cy="40" r="10"/>
+        <circle cx="320" cy="90" r="7" fill="#fff"/>
+        <circle cx="140" cy="160" r="12"/>
+        <circle cx="250" cy="200" r="8" fill="#fff"/>
+        <circle cx="60" cy="240" r="6"/>
+        <circle cx="340" cy="260" r="9"/>
+      </svg>
       <span class="onto-band-badge">Ontology</span>
       <h4>객체(Object)에 <span>프로세스(Process)</span>가 연결되어야 ‘진정한 온톨로지’</h4>
       <div class="onto-band-grid">
         <div class="onto-point">
+          <div class="onto-point-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 10h16M10 10v9"/></svg></div>
           <strong>① 기준정보 = 매핑 테이블</strong>
           <p>기준마다 제각각인 용어와 코드를 하나의 매핑 테이블로 연결합니다.</p>
         </div>
         <div class="onto-point">
+          <div class="onto-point-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v4h-4"/></svg></div>
           <strong>② 살아있는 데이터</strong>
           <p>끊임없이 바뀌는 기준정보를 자동으로 갱신 · 검증합니다.</p>
         </div>
         <div class="onto-point">
+          <div class="onto-point-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
           <strong>③ 의사결정 가속</strong>
           <p>의미로 연결된 데이터를 즉시 불러와 빠르고 정확하게 판단합니다.</p>
         </div>
@@ -432,36 +469,36 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
     <div class="agent-bundle">
       <div class="agent-row">
       <div class="agent-card">
-        <div class="agent-ico">🔍</div>
+        <div class="agent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4.5 4.5"/></svg></div>
         <strong>리서치 에이전트</strong>
         <p>조사 주제 설정부터 자료 수집, 분석, 보고서 작성·저장까지 리서치 전 과정을 자율 수행합니다.</p>
         <a class="chapter" href="#">데모에서 보기 · 5:30</a>
       </div>
       <div class="agent-card">
-        <div class="agent-ico">📄</div>
+        <div class="agent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4"/><path d="M10.5 12h3.5M10.5 16h3.5"/></svg></div>
         <strong>문서 에이전트</strong>
         <p>회의자료 · 보고서를 이해하고, 템플릿에 맞춰 DOCX · PDF 문서로 자동 생성합니다.</p>
         <a class="chapter" href="#">데모에서 보기 · 4:40</a>
       </div>
       <div class="agent-card">
-        <div class="agent-ico">🔗</div>
+        <div class="agent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v14c0 1.66 3.13 3 7 3s7-1.34 7-3V5"/><path d="M5 12c0 1.66 3.13 3 7 3s7-1.34 7-3"/></svg></div>
         <strong>ETL 에이전트</strong>
         <p>CSV · MQTT · OPC UA · DB 등 흩어진 데이터를 AI가 이해하기 쉬운 일관된 데이터로 변환합니다. 파이프라인 장애는 스스로 복구합니다.</p>
         <a class="chapter" href="#">데모에서 보기 · 1:20</a>
       </div>
       <div class="agent-card">
-        <div class="agent-ico">🧭</div>
+        <div class="agent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5-4.8 2 2.2-5z"/></svg></div>
         <strong>컨설팅 에이전트</strong>
         <p>DMAIC · Lean · TPM/OEE · TOC 방법론을 내장한 전문가 에이전트 팀이 현장 문제를 분업 진단하고 교차검증합니다.</p>
         <a class="chapter" href="#">데모에서 보기 · 3:10</a>
       </div>
       </div>
       <div class="agent-bundle-note">
-        🛠️ 이 에이전트들을 자유롭게 조합해, 코딩 없이 <b>나만의 커스텀 에이전트</b>를 만들 수 있습니다.
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h3.5M11.5 8H20M4 16h8.5M17.5 16H20"/><circle cx="9" cy="8" r="2.5"/><circle cx="15" cy="16" r="2.5"/></svg>이 에이전트들을 자유롭게 조합해, 코딩 없이 <b>나만의 커스텀 에이전트</b>를 만들 수 있습니다.
       </div>
     </div>
     <div class="agent-card full">
-        <div class="agent-ico">⚙️</div>
+        <div class="agent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="m7.3 11 9.4-5M7.3 13l9.4 5"/></svg></div>
         <strong>워크플로우</strong>
         <p>트리거 → 에이전트 → 로직 → 액션. 평소 일하던 순서를 화면에 끌어다 연결하면 조건 · 반복 · 사람 승인까지 코딩 없이 자동화됩니다. 모든 실행 이력은 기록되어 언제든 다시 확인할 수 있습니다.</p>
         <a class="chapter" href="#">데모에서 보기 · 6:00</a>
@@ -476,10 +513,10 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
       <h3>에이전트 라이프사이클 <span>전 구간</span>을<br>하나의 플랫폼으로</h3>
     </div>
     <div class="diff-grid">
-      <div class="diff-card"><strong>정형·비정형 데이터 통합</strong><p>MES, OT, DB를 직접 연동해 흩어진 데이터를 하나로 모읍니다.</p></div>
-      <div class="diff-card"><strong>통합 운영 환경</strong><p>수집, 분석, 실행을 하나의 플랫폼에서 모두 수행합니다.</p></div>
-      <div class="diff-card"><strong>결과 추적 및 검증</strong><p>추론 과정과 데이터 출처를 기록해 결과의 근거를 보존합니다.</p></div>
-      <div class="diff-card"><strong>유연한 배포</strong><p>온프레미스와 클라우드 운영 환경을 자유롭게 선택할 수 있습니다.</p></div>
+      <div class="diff-card"><div class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v14c0 1.66 3.13 3 7 3s7-1.34 7-3V5"/><path d="M5 12c0 1.66 3.13 3 7 3s7-1.34 7-3"/></svg></div><strong>정형·비정형 데이터 통합</strong><p>MES, OT, DB를 직접 연동해 흩어진 데이터를 하나로 모읍니다.</p></div>
+      <div class="diff-card"><div class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></div><strong>통합 운영 환경</strong><p>수집, 분석, 실행을 하나의 플랫폼에서 모두 수행합니다.</p></div>
+      <div class="diff-card"><div class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5.5"/></svg></div><strong>결과 추적 및 검증</strong><p>추론 과정과 데이터 출처를 기록해 결과의 근거를 보존합니다.</p></div>
+      <div class="diff-card"><div class="diff-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 1 1 .84-8.92A6 6 0 0 1 19.5 11 3.5 3.5 0 0 1 18 18H7z"/></svg></div><strong>유연한 배포</strong><p>온프레미스와 클라우드 운영 환경을 자유롭게 선택할 수 있습니다.</p></div>
     </div>
   </div>
 </section>
@@ -492,10 +529,12 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
     </div>
     <div class="deploy-grid">
       <div class="deploy-card">
+        <div class="deploy-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="7" rx="2"/><rect x="4" y="13" width="16" height="7" rx="2"/><path d="M8 7.5h.01M8 16.5h.01"/></svg></div>
         <strong>온프레미스 <span class="tag tag-a">폐쇄망</span></strong>
         <p>인터넷 격리 환경에서 단일 명령으로 구동합니다. 데이터가 외부로 나가지 않습니다.</p>
       </div>
       <div class="deploy-card">
+        <div class="deploy-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 1 1 .84-8.92A6 6 0 0 1 19.5 11 3.5 3.5 0 0 1 18 18H7z"/></svg></div>
         <strong>클라우드 <span class="tag tag-b">관리형</span></strong>
         <p>관리형 인프라 기반의 빠른 도입과 자동 확장을 지원합니다.</p>
       </div>
