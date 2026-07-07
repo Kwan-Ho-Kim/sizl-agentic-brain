@@ -302,23 +302,33 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 
 /* ── 좌측 섹션 내비게이션 ── */
 .side-nav{
-  position:fixed;left:20px;top:50%;transform:translateY(-50%);z-index:90;
-  display:flex;flex-direction:column;gap:13px;
+  position:fixed;left:16px;top:50%;transform:translateY(-50%);z-index:90;
+  display:flex;flex-direction:column;gap:6px;align-items:flex-start;
 }
 .side-nav a{
-  width:10px;height:10px;border-radius:50%;
-  background:rgba(151,27,253,.28);box-shadow:0 0 0 2px rgba(255,255,255,.55);
-  position:relative;transition:transform .15s ease,background .15s ease;
+  display:flex;align-items:center;gap:9px;
+  padding:6px 13px 6px 9px;border-radius:20px;
+  font-size:12.5px;font-weight:800;letter-spacing:-0.01em;color:var(--sub);
+  background:rgba(252,248,255,.85);border:1px solid var(--line);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  transition:transform .16s ease,color .16s ease,box-shadow .16s ease,background .16s ease;
+  transform-origin:left center;
 }
-.side-nav a:hover{background:var(--accent-soft)}
-.side-nav a.on{background:var(--accent);transform:scale(1.3)}
-.side-nav a::after{
-  content:attr(data-label);position:absolute;left:22px;top:50%;transform:translateY(-50%);
-  font-size:12px;font-weight:800;color:var(--accent);white-space:nowrap;
-  background:rgba(252,248,255,.95);border:1px solid var(--line);border-radius:12px;padding:4px 12px;
-  opacity:0;pointer-events:none;transition:opacity .15s ease;box-shadow:0 6px 16px rgba(52,16,94,.14);
+.side-nav a::before{
+  content:"";width:8px;height:8px;border-radius:50%;flex:none;
+  background:rgba(151,27,253,.3);transition:background .16s ease,box-shadow .16s ease;
 }
-.side-nav a:hover::after{opacity:1}
+.side-nav a::after{content:attr(data-label);white-space:nowrap}
+.side-nav a:hover{
+  transform:translateX(5px) scale(1.1);color:var(--accent);
+  background:#fff;box-shadow:0 8px 20px rgba(52,16,94,.16);
+}
+.side-nav a:hover::before{background:var(--accent-soft)}
+.side-nav a.on{
+  color:#fff;background:var(--grad-btn);border-color:transparent;
+  box-shadow:0 8px 20px rgba(151,27,253,.35);
+}
+.side-nav a.on::before{background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.3)}
 @media(max-width:1180px){.side-nav{display:none}}
 
 /* ── 히어로 등장 애니메이션 ── */
