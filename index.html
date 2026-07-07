@@ -168,10 +168,21 @@ section{padding:72px 0}
 .onto-layer li b{font-weight:800;color:var(--ink-2)}
 .onto-layer li span{color:var(--sub);font-size:12px}
 @media(max-width:768px){.onto-layer{flex-direction:column;align-items:flex-start;gap:14px}.onto-layer-head{width:auto}}
-.onto-up{display:flex;justify-content:center;padding:10px 0}
-.onto-up i{
-  display:block;width:52px;height:24px;
+.onto-up{display:flex;flex-direction:column;align-items:center;gap:4px;padding:5px 0}
+.onto-up::before,.onto-up i,.onto-up::after{
+  content:"";display:block;width:44px;height:13px;
   background:var(--grad-btn);clip-path:polygon(50% 0,0 100%,100% 100%);
+  animation:flowUp 1.5s ease-in-out infinite;
+}
+.onto-up::before{animation-delay:.5s}
+.onto-up i{animation-delay:.25s}
+.onto-up::after{animation-delay:0s}
+@keyframes flowUp{
+  0%,100%{opacity:.22;transform:translateY(4px)}
+  50%{opacity:1;transform:translateY(-1px)}
+}
+@media (prefers-reduced-motion:reduce){
+  .onto-up::before,.onto-up i,.onto-up::after{animation:none;opacity:1;transform:none}
 }
 .onto-band{
   border-radius:30px;padding:42px 38px;color:#fff;
