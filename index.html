@@ -183,21 +183,18 @@ section{padding:72px 0}
 .onto-layer li b{font-weight:800;color:var(--ink-2)}
 .onto-layer li span{color:var(--sub);font-size:12px}
 @media(max-width:768px){.onto-layer{flex-direction:column;align-items:flex-start;gap:14px}.onto-layer-head{width:auto}}
-.onto-up{display:flex;flex-direction:column;align-items:center;gap:4px;padding:5px 0}
-.onto-up::before,.onto-up i,.onto-up::after{
-  content:"";display:block;width:44px;height:13px;
+.onto-up{display:flex;justify-content:center;padding:8px 0}
+.onto-up i{
+  display:block;width:48px;height:22px;
   background:var(--grad-btn);clip-path:polygon(50% 0,0 100%,100% 100%);
-  animation:flowUp 1.5s ease-in-out infinite;
+  animation:flowUp 1.6s ease-in-out infinite;
 }
-.onto-up::before{animation-delay:.5s}
-.onto-up i{animation-delay:.25s}
-.onto-up::after{animation-delay:0s}
 @keyframes flowUp{
-  0%,100%{opacity:.22}
-  50%{opacity:1}
+  0%,100%{opacity:.3;filter:drop-shadow(0 0 0 rgba(151,27,253,0))}
+  50%{opacity:1;filter:drop-shadow(0 4px 12px rgba(151,27,253,.55))}
 }
 @media (prefers-reduced-motion:reduce){
-  .onto-up::before,.onto-up i,.onto-up::after{animation:none;opacity:1;transform:none}
+  .onto-up i{animation:none;opacity:1}
 }
 .onto-band{
   border-radius:30px;padding:42px 38px;color:#fff;
@@ -494,7 +491,7 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
       <p class="lead">공장 데이터에 직접 연결되어 분석·진단·자동화를 스스로 수행하는 Agentic AI 플랫폼입니다. 흩어진 데이터를 하나로 모으고, 현장 문제를 진단해 조치 방안까지 제안합니다.</p>
       <div class="hero-ctas">
         <a class="btn btn-grad" href="#contact">도입 문의하기</a>
-        <a class="btn btn-glass" href="#">제품 소개서 다운로드</a>
+        <a class="btn btn-glass" href="#">제품 소개서</a>
       </div>
       <div class="agent-pills">
         <span>리서치</span><span>문서</span><span>ETL</span><span>컨설팅</span><span>워크플로우</span><span class="pill-plus">＋ 커스텀 에이전트</span>
@@ -818,7 +815,7 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
     <p>데이터 진단부터 파일럿까지, 도입 전 과정을 안내해 드립니다.</p>
     <div class="hero-ctas">
       <a class="btn btn-grad" href="#">도입 문의하기</a>
-      <a class="btn btn-glass" href="#">제품 소개서 다운로드</a>
+      <a class="btn btn-glass" href="#">제품 소개서</a>
     </div>
   </div>
 </section>
