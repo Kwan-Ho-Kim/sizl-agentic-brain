@@ -59,10 +59,8 @@ section{padding:72px 0}
 /* ── HERO: 메인 배너와 동일한 다크 바이올렛 그라디언트 + 글래스 ── */
 .hero{
   background:
-    radial-gradient(circle at 12% 8%, rgba(221,194,254,.14), transparent 38%),
-    radial-gradient(circle at 88% 90%, rgba(192,132,252,.16), transparent 42%),
-    linear-gradient(100deg, rgba(22,9,47,.94) 0%, rgba(38,15,77,.8) 45%, rgba(22,9,47,.5) 100%),
-    url("img/hero.jpg") center/cover no-repeat,
+    linear-gradient(90deg, rgba(22,9,47,.97) 0%, rgba(30,12,60,.82) 38%, rgba(22,9,47,.35) 70%, rgba(22,9,47,.05) 100%),
+    url("img/hero.jpg") right center/cover no-repeat,
     var(--grad-hero);
   color:#fff;padding:52px 0 60px;overflow:hidden;
   min-height:calc(100vw / 2.85);display:flex;align-items:center;
@@ -116,6 +114,18 @@ section{padding:72px 0}
 .play:hover .circle{transform:scale(1.07)}
 .play .circle::after{content:"";border-style:solid;border-width:12px 0 12px 20px;border-color:transparent transparent transparent #fff;margin-left:5px}
 .play small{font-family:'NanumSquare',sans-serif;color:#fff;font-size:13px;font-weight:700;background:rgba(22,9,47,.62);padding:6px 16px;border-radius:20px}
+
+/* ── 데모 영상 모달 ── */
+.video-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center}
+.video-modal[hidden]{display:none}
+.video-modal-bg{position:absolute;inset:0;background:rgba(10,4,32,.82);backdrop-filter:blur(4px)}
+.video-modal-body{position:relative;width:min(1100px,92vw);border-radius:20px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.55)}
+.video-modal-body video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.video-modal-close{
+  position:absolute;top:12px;right:12px;z-index:2;width:40px;height:40px;border-radius:50%;
+  border:0;background:rgba(22,9,47,.72);color:#fff;font-size:17px;cursor:pointer;
+}
+.video-modal-close:hover{background:var(--accent)}
 
 /* ── 문제 정의: 라이트 라벤더 틴트 + 글로우 ── */
 .problems{
@@ -485,19 +495,19 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
       <div class="hero-ctas">
         <a class="btn btn-grad" href="#contact">도입 문의하기</a>
         <a class="btn btn-glass" href="#">제품 소개서</a>
-      </div>
-    </div>
-    <div class="video-shell">
-      <div class="video-body">
-        <img src="img/video-poster.jpg" alt="SIZL Agentic Brain 제품 홈 화면">
-        <video id="demoVideo" src="260608_1440_demo.mp4" controls playsinline preload="metadata"></video>
-        <button class="play" aria-label="데모 영상 재생">
-          <span class="circle"></span>
-        </button>
+        <a class="btn btn-glass" href="#" id="demoBtn">▶ 데모 영상 보기</a>
       </div>
     </div>
   </div>
 </section>
+
+<div class="video-modal" id="videoModal" hidden>
+  <div class="video-modal-bg"></div>
+  <div class="video-modal-body">
+    <button class="video-modal-close" aria-label="닫기">✕</button>
+    <video id="demoVideo" src="260608_1440_demo.mp4" controls playsinline preload="metadata" poster="img/video-poster.jpg"></video>
+  </div>
+</div>
 
 <!-- ② 현장의 문제 -->
 <section class="problems" id="problems">
@@ -814,20 +824,16 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 
 <script>
 (function(){
-  var body = document.querySelector('.video-body');
+  var modal = document.getElementById('videoModal');
+  if(!modal) return;
   var video = document.getElementById('demoVideo');
-  var playBtn = body.querySelector('.play');
-  playBtn.addEventListener('click', function(){
-    body.classList.add('playing');
-    video.play();
-  });
-  video.addEventListener('ended', function(){
-    body.classList.remove('playing');
-    video.currentTime = 0;
-  });
-  video.addEventListener('error', function(){
-    body.classList.remove('playing');
-  });
+  var openBtn = document.getElementById('demoBtn');
+  function open(){ modal.hidden = false; document.body.style.overflow = 'hidden'; video.play().catch(function(){}); }
+  function close(){ modal.hidden = true; document.body.style.overflow = ''; video.pause(); }
+  openBtn.addEventListener('click', function(e){ e.preventDefault(); open(); });
+  modal.querySelector('.video-modal-close').addEventListener('click', close);
+  modal.querySelector('.video-modal-bg').addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !modal.hidden) close(); });
 })();
 
 (function(){
