@@ -58,6 +58,8 @@ section{padding:110px 0}
 /* ── HERO: 메인 배너와 동일한 다크 바이올렛 그라디언트 + 글래스 ── */
 .hero{
   background:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/54px 54px,
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/54px 54px,
     radial-gradient(circle at 12% 8%, rgba(221,194,254,.14), transparent 38%),
     radial-gradient(circle at 88% 90%, rgba(192,132,252,.16), transparent 42%),
     var(--grad-hero);
@@ -113,6 +115,7 @@ section{padding:110px 0}
 /* ── 문제 정의: 라이트 라벤더 틴트 + 글로우 ── */
 .problems{
   background:
+    radial-gradient(rgba(151,27,253,.05) 1.2px, transparent 1.2px) 0 0/26px 26px,
     radial-gradient(circle at 10% 2%, rgba(221,194,254,.18), transparent 34%),
     radial-gradient(circle at 90% 96%, rgba(192,132,252,.12), transparent 38%),
     linear-gradient(180deg,#fff 0%,var(--tint) 100%);
@@ -140,7 +143,13 @@ section{padding:110px 0}
 .answer-band small{display:block;font-size:15px;font-weight:700;color:rgba(255,255,255,.66);margin-bottom:14px;letter-spacing:0}
 
 /* ── 온톨로지: 데이터 파이프라인 + Object·Process 통합 ── */
-.ontology{background:#fff;padding:84px 0}
+.ontology{
+  background:
+    radial-gradient(rgba(151,27,253,.045) 1.2px, transparent 1.2px) 0 0/26px 26px,
+    radial-gradient(circle at 88% 12%, rgba(221,194,254,.14), transparent 36%),
+    #fff;
+  padding:84px 0;
+}
 .ontology .sec-head{margin-bottom:44px}
 .onto-layer{
   display:flex;align-items:center;gap:28px;
@@ -192,7 +201,10 @@ section{padding:110px 0}
 /* ── 에이전트 5종: 다크 섹션 + 글래스 카드 (메인 솔루션 섹션 문법) ── */
 .agents{
   background:
+    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px) 0 0/54px 54px,
+    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px) 0 0/54px 54px,
     radial-gradient(circle at 85% 8%, rgba(192,132,252,.2), transparent 40%),
+    radial-gradient(circle at 8% 88%, rgba(222,195,255,.12), transparent 36%),
     linear-gradient(135deg,rgba(16,7,34,.96) 0%,rgba(63,18,106,.92) 55%,rgba(91,30,163,.9) 100%);
   color:#fff;
 }
@@ -226,7 +238,12 @@ section{padding:110px 0}
 .agent-card.full{margin-top:22px;background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(192,132,252,.12))}
 
 /* ── 차별점: 라이트, 상단 그라디언트 보더 ── */
-.diff{background:#fff}
+.diff{
+  background:
+    radial-gradient(rgba(151,27,253,.045) 1.2px, transparent 1.2px) 0 0/26px 26px,
+    radial-gradient(circle at 12% 90%, rgba(221,194,254,.12), transparent 34%),
+    #fff;
+}
 .diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 @media(max-width:960px){.diff-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.diff-grid{grid-template-columns:1fr}}
@@ -268,6 +285,19 @@ section{padding:110px 0}
 .cta .hero-ctas{justify-content:center}
 
 footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30px 0;text-align:center;letter-spacing:0}
+
+/* ── 제품 스크린샷 ── */
+.agent-shot{
+  display:block;width:100%;border-radius:14px;margin-top:18px;
+  border:1px solid rgba(255,255,255,.18);box-shadow:0 10px 28px rgba(10,4,32,.35);
+}
+.agent-card.full{flex-direction:row;align-items:center;gap:36px}
+.agent-card.full .agent-txt{flex:1;display:flex;flex-direction:column;align-items:flex-start}
+.agent-card.full .agent-shot{width:46%;flex:none;margin:0}
+@media(max-width:860px){
+  .agent-card.full{flex-direction:column;align-items:stretch}
+  .agent-card.full .agent-shot{width:100%;margin-top:18px}
+}
 
 /* ── SVG 아이콘 ── */
 .agent-ico{color:#fff}
@@ -472,24 +502,28 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
         <div class="agent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4.5 4.5"/></svg></div>
         <strong>리서치 에이전트</strong>
         <p>조사 주제 설정부터 자료 수집, 분석, 보고서 작성·저장까지 리서치 전 과정을 자율 수행합니다.</p>
+        <img class="agent-shot" src="img/research.jpg" alt="리서치 에이전트 실행 화면" loading="lazy">
         <a class="chapter" href="#">데모에서 보기 · 5:30</a>
       </div>
       <div class="agent-card">
         <div class="agent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4"/><path d="M10.5 12h3.5M10.5 16h3.5"/></svg></div>
         <strong>문서 에이전트</strong>
         <p>회의자료 · 보고서를 이해하고, 템플릿에 맞춰 DOCX · PDF 문서로 자동 생성합니다.</p>
+        <img class="agent-shot" src="img/doc.jpg" alt="문서 에이전트 실행 화면" loading="lazy">
         <a class="chapter" href="#">데모에서 보기 · 4:40</a>
       </div>
       <div class="agent-card">
         <div class="agent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v14c0 1.66 3.13 3 7 3s7-1.34 7-3V5"/><path d="M5 12c0 1.66 3.13 3 7 3s7-1.34 7-3"/></svg></div>
         <strong>ETL 에이전트</strong>
         <p>CSV · MQTT · OPC UA · DB 등 흩어진 데이터를 AI가 이해하기 쉬운 일관된 데이터로 변환합니다. 파이프라인 장애는 스스로 복구합니다.</p>
+        <img class="agent-shot" src="img/etl.jpg" alt="ETL 파이프라인 관리 화면" loading="lazy">
         <a class="chapter" href="#">데모에서 보기 · 1:20</a>
       </div>
       <div class="agent-card">
         <div class="agent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5-4.8 2 2.2-5z"/></svg></div>
         <strong>컨설팅 에이전트</strong>
         <p>DMAIC · Lean · TPM/OEE · TOC 방법론을 내장한 전문가 에이전트 팀이 현장 문제를 분업 진단하고 교차검증합니다.</p>
+        <img class="agent-shot" src="img/consult.jpg" alt="컨설팅 에이전트 진단 화면" loading="lazy">
         <a class="chapter" href="#">데모에서 보기 · 3:10</a>
       </div>
       </div>
@@ -498,10 +532,13 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
       </div>
     </div>
     <div class="agent-card full">
-        <div class="agent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="m7.3 11 9.4-5M7.3 13l9.4 5"/></svg></div>
-        <strong>워크플로우</strong>
-        <p>트리거 → 에이전트 → 로직 → 액션. 평소 일하던 순서를 화면에 끌어다 연결하면 조건 · 반복 · 사람 승인까지 코딩 없이 자동화됩니다. 모든 실행 이력은 기록되어 언제든 다시 확인할 수 있습니다.</p>
-        <a class="chapter" href="#">데모에서 보기 · 6:00</a>
+        <div class="agent-txt">
+          <div class="agent-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="m7.3 11 9.4-5M7.3 13l9.4 5"/></svg></div>
+          <strong>워크플로우</strong>
+          <p>트리거 → 에이전트 → 로직 → 액션. 평소 일하던 순서를 화면에 끌어다 연결하면 조건 · 반복 · 사람 승인까지 코딩 없이 자동화됩니다. 모든 실행 이력은 기록되어 언제든 다시 확인할 수 있습니다.</p>
+          <a class="chapter" href="#">데모에서 보기 · 6:00</a>
+        </div>
+        <img class="agent-shot" src="img/workflow.jpg" alt="멀티 에이전트 워크플로우 편집 화면" loading="lazy">
     </div>
   </div>
 </section>
