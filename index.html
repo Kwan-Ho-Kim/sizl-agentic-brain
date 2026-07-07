@@ -342,32 +342,34 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 /* ── 좌측 섹션 내비게이션 ── */
 .side-nav{
   position:fixed;left:16px;top:50%;transform:translateY(-50%);z-index:90;
-  display:flex;flex-direction:column;gap:6px;align-items:flex-start;
+  display:flex;flex-direction:column;gap:4px;align-items:flex-start;
+}
+.side-nav::before{
+  content:"";position:absolute;left:14px;top:16px;bottom:16px;width:2px;
+  background:rgba(151,27,253,.22);transition:background .25s ease;
 }
 .side-nav a{
-  display:flex;align-items:center;gap:9px;
-  width:122px;padding:6px 13px 6px 11px;border-radius:20px;
+  position:relative;display:flex;align-items:center;gap:10px;
+  padding:7px 10px;border-radius:14px;
   font-size:12.5px;font-weight:800;letter-spacing:-0.01em;color:var(--sub);
-  background:rgba(252,248,255,.45);border:1px solid rgba(236,227,248,.7);
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  transition:transform .16s ease,color .16s ease,box-shadow .16s ease,background .16s ease;
+  transition:transform .16s ease,color .16s ease;
   transform-origin:left center;
 }
 .side-nav a::before{
   content:"";width:8px;height:8px;border-radius:50%;flex:none;
-  background:rgba(151,27,253,.3);transition:background .16s ease,box-shadow .16s ease;
+  background:#CBB0EA;transition:background .16s ease,box-shadow .16s ease;
 }
 .side-nav a::after{content:attr(data-label);white-space:nowrap}
-.side-nav a:hover{
-  transform:translateX(5px) scale(1.1);color:var(--accent);
-  background:#fff;box-shadow:0 8px 20px rgba(52,16,94,.16);
-}
+.side-nav a:hover{transform:translateX(4px) scale(1.08);color:var(--accent)}
 .side-nav a:hover::before{background:var(--accent-soft)}
-.side-nav a.on{
-  color:#fff;background:var(--grad-btn);border-color:transparent;
-  box-shadow:0 8px 20px rgba(151,27,253,.35);
-}
-.side-nav a.on::before{background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.3)}
+.side-nav a.on{color:var(--accent)}
+.side-nav a.on::before{background:var(--accent);box-shadow:0 0 0 3px rgba(151,27,253,.2)}
+.side-nav.on-dark::before{background:rgba(255,255,255,.3)}
+.side-nav.on-dark a{color:rgba(255,255,255,.75)}
+.side-nav.on-dark a::before{background:rgba(255,255,255,.45)}
+.side-nav.on-dark a:hover{color:#fff}
+.side-nav.on-dark a.on{color:#DEC3FF}
+.side-nav.on-dark a.on::before{background:#DEC3FF;box-shadow:0 0 0 3px rgba(222,195,255,.25)}
 @media(max-width:1180px){.side-nav{display:none}}
 
 /* ── 히어로 등장 애니메이션 ── */
@@ -892,11 +894,14 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 (function(){
   var links = document.querySelectorAll('.side-nav a');
   if(!links.length || !('IntersectionObserver' in window)) return;
+  var nav = document.querySelector('.side-nav');
+  var dark = {'#home':1, '#agents':1, '#contact':1};
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(!e.isIntersecting) return;
       var id = '#' + e.target.id;
       links.forEach(function(l){ l.classList.toggle('on', l.getAttribute('href') === id); });
+      nav.classList.toggle('on-dark', !!dark[id]);
     });
   }, {rootMargin:'-45% 0px -45% 0px', threshold:0});
   links.forEach(function(l){
