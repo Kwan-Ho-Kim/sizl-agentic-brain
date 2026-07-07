@@ -464,12 +464,12 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
   <div class="header-in">
     <a class="logo" href="https://sizl.co.kr/" aria-label="SIZL 홈"><img src="img/logo.png" alt="SIZL"></a>
     <nav class="menu" aria-label="주요 메뉴">
-      <a href="https://sizl.co.kr/company1">회사소개</a>
-      <a href="https://sizl.co.kr/solution1">솔루션소개</a>
-      <a href="#home" class="active">Agentic Brain<span class="new">N</span></a>
-      <a href="https://sizl.co.kr/smartFactory/smart_factory1">스마트팩토리</a>
-      <a href="https://sizl.co.kr/mediaRoom/media_room1">미디어룸</a>
-      <a href="https://sizl.co.kr/customer/customer_service1">고객센터</a>
+      <a href="#">회사소개</a>
+      <a href="#">솔루션소개</a>
+      <a href="#" class="active">Agentic Brain<span class="new">N</span></a>
+      <a href="#">스마트팩토리</a>
+      <a href="#">미디어룸</a>
+      <a href="#">고객센터</a>
     </nav>
   </div>
 </header>
@@ -923,7 +923,7 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
       var id = a.getAttribute('href');
-      if(id.length < 2) return;
+      if(id.length < 2){ e.preventDefault(); return; }
       var t = document.querySelector(id);
       if(!t) return;
       e.preventDefault();
