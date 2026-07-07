@@ -48,8 +48,8 @@ section{padding:72px 0}
 }
 .header-in{max-width:1440px;margin:0 auto;padding:0 60px;height:78px;display:flex;align-items:center;justify-content:space-between}
 @media(max-width:1024px){.header-in{padding:0 24px}}
-.logo{font-weight:800;font-size:22px;letter-spacing:-0.03em;color:var(--ink-2)}
-.logo b{color:var(--accent)}
+.logo{display:flex;align-items:center}
+.logo img{height:26px;display:block}
 .menu{display:flex;gap:44px;font-size:16px;font-weight:700;color:#242C3D;letter-spacing:-0.02em}
 .menu .active{color:var(--accent)}
 .menu .new{font-size:9px;font-weight:800;color:#fff;background:var(--grad-btn);border-radius:6px;padding:1px 5px;vertical-align:top;margin-left:4px}
@@ -462,14 +462,14 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 <!-- 헤더: sizl.co.kr GNB에 Agentic Brain 1차 메뉴 신설 -->
 <header class="header">
   <div class="header-in">
-    <div class="logo">SIZL <b>시즐</b></div>
+    <a class="logo" href="https://sizl.co.kr/" aria-label="SIZL 홈"><img src="img/logo.png" alt="SIZL"></a>
     <nav class="menu" aria-label="주요 메뉴">
-      <a href="#">회사소개</a>
-      <a href="#">솔루션소개</a>
-      <a href="#" class="active">Agentic Brain<span class="new">N</span></a>
-      <a href="#">스마트팩토리</a>
-      <a href="#">미디어룸</a>
-      <a href="#">고객센터</a>
+      <a href="https://sizl.co.kr/company1">회사소개</a>
+      <a href="https://sizl.co.kr/solution1">솔루션소개</a>
+      <a href="#home" class="active">Agentic Brain<span class="new">N</span></a>
+      <a href="https://sizl.co.kr/smartFactory/smart_factory1">스마트팩토리</a>
+      <a href="https://sizl.co.kr/mediaRoom/media_room1">미디어룸</a>
+      <a href="https://sizl.co.kr/customer/customer_service1">고객센터</a>
     </nav>
     <a class="h-cta" href="#contact">도입 문의</a>
   </div>
