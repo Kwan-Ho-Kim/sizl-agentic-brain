@@ -352,8 +352,18 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 }
 .agent-scroll::-webkit-scrollbar{display:none}
 .agent-scroll.dragging{cursor:grabbing}
-.agent-scroll .agent-card{flex:0 0 390px;min-width:0}
+.agent-scroll .agent-card{
+  flex:0 0 calc(100%/2.2 - 12px);min-width:0;padding:24px 24px;
+}
+@media(max-width:960px){.agent-scroll .agent-card{flex-basis:calc(100%/1.5 - 8px)}}
 @media(max-width:640px){.agent-scroll .agent-card{flex-basis:82%}}
+.agent-scroll .agent-ico{width:44px;height:44px;border-radius:13px;margin-bottom:14px}
+.agent-scroll .agent-ico svg{width:21px;height:21px}
+.agent-scroll .agent-card strong{font-size:18px}
+.agent-scroll .agent-card p{font-size:13.5px;margin-top:8px;flex:0 0 auto}
+.agent-scroll .agent-feats{margin-top:12px;gap:7px;margin-bottom:14px}
+.agent-scroll .agent-feats li{font-size:13px;padding-left:21px}
+.agent-scroll .chapter{margin-top:14px}
 .agent-scroll img{-webkit-user-drag:none}
 .agent-scroll .agent-shot{margin-top:auto}
 
