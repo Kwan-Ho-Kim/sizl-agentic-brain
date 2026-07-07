@@ -837,6 +837,23 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
     if(t) io.observe(t);
   });
 })();
+
+(function(){
+  var header = document.querySelector('.header');
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if(id.length < 2) return;
+      var t = document.querySelector(id);
+      if(!t) return;
+      e.preventDefault();
+      var hh = header ? header.getBoundingClientRect().height : 0;
+      var y = window.scrollY + t.getBoundingClientRect().top - hh - 6;
+      window.scrollTo({top: Math.max(0, y), behavior: 'smooth'});
+      history.replaceState(null, '', id);
+    });
+  });
+})();
 </script>
 
 </body>
