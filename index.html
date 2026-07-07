@@ -425,7 +425,7 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 .agent-scroll::-webkit-scrollbar{display:none}
 .agent-scroll.dragging{cursor:grabbing}
 .agent-scroll .agent-card{
-  flex:0 0 calc(100%/2.2 - 12px);min-width:0;padding:24px 24px;
+  flex:0 0 calc(100%/2.6 - 12px);min-width:0;padding:24px 24px;
 }
 @media(max-width:960px){.agent-scroll .agent-card{flex-basis:calc(100%/1.5 - 8px)}}
 @media(max-width:640px){.agent-scroll .agent-card{flex-basis:82%}}
@@ -438,7 +438,7 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 .agent-scroll .agent-feats li{font-size:13px;padding-left:21px}
 .agent-scroll .chapter{margin-top:14px}
 .agent-scroll img{-webkit-user-drag:none}
-.agent-scroll .agent-shot{margin-top:auto;aspect-ratio:2.08;object-fit:cover;object-position:top}
+.agent-scroll .agent-shot{margin-top:auto;aspect-ratio:1.85;object-fit:cover;object-position:top}
 
 /* ── 스크롤 리빌 ── */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
@@ -855,6 +855,14 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 (function(){
   var sc = document.querySelector('.agent-scroll');
   if(!sc) return;
+  function centerDefault(){
+    var c = sc.children;
+    if(c.length < 4) return;
+    var mid = (c[2].offsetLeft + c[3].offsetLeft + c[3].offsetWidth) / 2;
+    sc.scrollLeft = mid - sc.clientWidth / 2;
+  }
+  centerDefault();
+  window.addEventListener('load', centerDefault);
   var down = false, moved = false, startX = 0, startLeft = 0;
   sc.addEventListener('pointerdown', function(e){
     if(e.pointerType !== 'mouse') return;
