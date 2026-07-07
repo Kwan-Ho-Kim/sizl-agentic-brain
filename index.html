@@ -268,6 +268,11 @@ section{padding:110px 0}
 .cta .hero-ctas{justify-content:center}
 
 footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30px 0;text-align:center;letter-spacing:0}
+
+/* ── 스크롤 리빌 ── */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -293,7 +298,7 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
   <div class="wrap hero-grid">
     <div>
       <span class="badge">SIZL Agentic Brain · 제조 특화 Agentic AI 플랫폼</span>
-      <h2>우리 공장의 <span class="hl">AX 2.0</span>,<br>데이터 연결부터 자율 실행까지<br><span class="hl">하나의 플랫폼</span>으로</h2>
+      <h2><span class="hl">AX 2.0</span>을 위한 스마트 팩토리 구현,<br>데이터 연결부터 자율 실행까지<br><span class="hl">하나의 플랫폼</span>으로</h2>
       <p class="lead">공장 데이터에 직접 연결되어 분석·진단·자동화를 스스로 수행하는 Agentic AI 플랫폼입니다. 흩어진 데이터를 하나로 모으고, 현장 문제를 진단해 조치 방안까지 제안합니다.</p>
       <div class="hero-ctas">
         <a class="btn btn-grad" href="#contact">도입 문의하기</a>
@@ -350,7 +355,7 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 <section class="ontology">
   <div class="wrap">
     <div class="sec-head">
-      <h3>시즐의 <span>Ontology</span></h3>
+      <h3>SIZL <span>Ontology Engine</span></h3>
       <p>ERD · VectorDB · Knowledge Graph를 ETL로 통합하고, 객체(Object)와 프로세스(Process)를 연결합니다.</p>
     </div>
     <div class="onto-band">
@@ -529,6 +534,26 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
   video.addEventListener('error', function(){
     body.classList.remove('playing');
   });
+})();
+
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var targets = document.querySelectorAll(
+    '.sec-head, .prob-card, .answer-band, .onto-band, .onto-up, .onto-layer,' +
+    '.agent-card, .agent-bundle, .agent-bundle-note, .diff-card, .deploy-card, .deploy-note,' +
+    '.cta h3, .cta p, .cta .hero-ctas'
+  );
+  targets.forEach(function(el){
+    el.classList.add('reveal');
+    var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
+    el.style.transitionDelay = Math.min(idx, 5) * 70 + 'ms';
+  });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  targets.forEach(function(el){ io.observe(el); });
 })();
 </script>
 
