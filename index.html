@@ -343,7 +343,10 @@ footer{background:#130926;color:rgba(255,255,255,.42);font-size:13px;padding:30p
 .side-nav{
   position:fixed;left:16px;top:50%;transform:translateY(-50%);z-index:90;
   display:flex;flex-direction:column;gap:4px;align-items:flex-start;
+  opacity:0;animation:navIn .8s ease 1.05s forwards;
 }
+@keyframes navIn{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.side-nav{opacity:1;animation:none}}
 .side-nav::before{
   content:"";position:absolute;left:14px;top:16px;bottom:16px;width:2px;
   background:rgba(151,27,253,.22);transition:background .25s ease;
