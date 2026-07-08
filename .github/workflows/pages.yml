@@ -35,11 +35,13 @@ jobs:
           done
           {
             echo '<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SIZL Agentic Brain — 버전 목록</title>'
-            echo '<style>body{font-family:-apple-system,"Apple SD Gothic Neo",sans-serif;max-width:640px;margin:70px auto;padding:0 20px;color:#0F172A}h1{letter-spacing:-0.03em}a{color:#971BFD;font-weight:700;text-decoration:none}a:hover{text-decoration:underline}li{margin:10px 0;font-size:17px}</style></head><body>'
+            echo '<style>body{font-family:-apple-system,"Apple SD Gothic Neo",sans-serif;max-width:720px;margin:70px auto;padding:0 20px;color:#0F172A}h1{letter-spacing:-0.03em}a{color:#971BFD;font-weight:700;text-decoration:none}a:hover{text-decoration:underline}li{margin:12px 0;font-size:17px}.meta{color:#5B6B80;font-size:14.5px}</style></head><body>'
             echo '<h1>SIZL Agentic Brain — 버전 목록</h1><ul>'
             echo '<li><a href="./">최신 (main)</a></li>'
             for tag in $(git tag -l 'v*' | sort -Vr); do
-              echo "<li><a href=\"./$tag/\">$tag</a></li>"
+              tdate=$(git log -1 --format=%ad --date=format:'%Y-%m-%d' "$tag")
+              tdesc=$(git tag -l --format='%(contents:subject)' "$tag")
+              echo "<li><a href=\"./$tag/\">$tag</a> <span class=\"meta\">· $tdate — $tdesc</span></li>"
             done
             echo '</ul></body></html>'
           } > _site/versions.html
